@@ -88,6 +88,17 @@ MODEL=/path/to/your/Qwen3-Omni-30B-A3B-Thinking bash parabridge/train.sh
 
 ParaBridge has also been verified on MiMo-Audio-thinking; any SLM that exposes a usable scaffolded vs. scaffold-free gap should be a reasonable starting point.
 
+## Pretrained ParaBridge checkpoint
+
+We release the trained ParaBridge merged weights on Hugging Face at [`Parabridge/MainCheckpoint`](https://huggingface.co/Parabridge/MainCheckpoint). It is the main checkpoint reported in the paper, trained on top of `Qwen3-Omni-30B-A3B-Thinking` with the 1k cv+cp set.
+
+```bash
+huggingface-cli download Parabridge/MainCheckpoint \
+    --local-dir ./checkpoints/parabridge-main
+```
+
+You can plug this directly into any `swift infer` / `swift deploy` workflow that accepts the base Qwen3-Omni model — no paralinguistic system prompt is needed at inference time.
+
 ## Data format
 
 Each line of the training jsonl is one audio query:
