@@ -3,6 +3,15 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Local IDE / agent state
+.claude/
+
+# ParaBridge runtime artifacts
+models/
+outputs/
+logs/
+data/*.resolved.jsonl
+
 # C extensions
 *.so
 

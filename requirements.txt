@@ -1,0 +1,42 @@
+# ParaBridge training requirements.
+#
+# This file pins the versions actually used to produce the paper's results.
+# Recommended workflow:
+#
+#     conda create -n ms-swift python=3.10 -y
+#     conda activate ms-swift
+#     # Install a CUDA build of PyTorch that matches your driver, e.g. CUDA 12.8:
+#     pip install torch==2.9.0 --index-url https://download.pytorch.org/whl/cu128
+#     # Then everything else:
+#     pip install -r requirements.txt
+#     # Finally install the in-tree ms-swift fork (with the ParaBridge patches):
+#     pip install -e . --no-deps
+#
+# flash-attn must be installed against the same torch ABI; if the wheel below
+# fails to resolve for your platform, install a matching prebuilt wheel from
+# https://github.com/Dao-AILab/flash-attention/releases and remove it here.
+
+# --- core ms-swift framework deps ---
+-r requirements/framework.txt
+
+# --- speech / multimodal ---
+librosa==0.11.0
+soundfile==0.13.1
+av==17.0.1
+
+# --- distillation + rollout serving ---
+vllm==0.13.0
+deepspeed==0.19.0
+flash_attn==2.8.3
+
+# --- training stack pinned to versions the paper used ---
+torch==2.9.0
+transformers==4.57.6
+trl==0.29.1
+peft==0.18.1
+accelerate==1.13.0
+datasets==3.6.0
+
+# --- experiment tracking (optional but referenced from train.sh) ---
+swanlab==0.7.17
+tensorboard==2.20.0
