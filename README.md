@@ -1,5 +1,11 @@
 # ParaBridge
 
+[![Paper](https://img.shields.io/badge/arXiv-2606.10581-b31b1b.svg)](https://arxiv.org/abs/2606.10581)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-YuxiangW%2FParaBridge-ffd21e.svg)](https://huggingface.co/YuxiangW/ParaBridge)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
+
+> 🎉 **Accepted to EMNLP 2026 (Main Conference)!**
+
 Training code for **ParaBridge: Bridging Paralinguistic Perception and Dialogue Behavior in Speech Language Models**.
 
 ## What this repo contains
@@ -90,10 +96,10 @@ ParaBridge has also been verified on MiMo-Audio-thinking; any SLM that exposes a
 
 ## Pretrained ParaBridge checkpoint
 
-We release the trained ParaBridge merged weights on Hugging Face at [`Parabridge/MainCheckpoint`](https://huggingface.co/Parabridge/MainCheckpoint). It is the main checkpoint reported in the paper, trained on top of `Qwen3-Omni-30B-A3B-Thinking` with the 1k cv+cp set.
+We release the trained ParaBridge merged weights on Hugging Face at [`YuxiangW/ParaBridge`](https://huggingface.co/YuxiangW/ParaBridge). It is the main checkpoint reported in the paper, trained on top of `Qwen3-Omni-30B-A3B-Thinking` with the 1k cv+cp set.
 
 ```bash
-huggingface-cli download Parabridge/MainCheckpoint \
+huggingface-cli download YuxiangW/ParaBridge \
     --local-dir ./checkpoints/parabridge-main
 ```
 
@@ -200,3 +206,16 @@ Apache License 2.0 (inherited from ms-swift). See [LICENSE](./LICENSE).
 ## Acknowledgements
 
 ParaBridge is built on top of [ms-swift](https://github.com/modelscope/ms-swift) and uses Qwen3-Omni-thinking as the primary backbone. The audio query construction follows the VoxSafeBench pipeline.
+
+## Citation
+
+If you find ParaBridge useful in your research, please cite:
+
+```bibtex
+@article{wang2026parabridge,
+  title={ParaBridge: Bridging Paralinguistic Perception and Dialogue Behavior in Speech Language Models},
+  author={Wang, Yuxiang and Ni, Qinke and Cai, Shengbo and Lin, Wan and Zhang, Liqiang and Wu, Zhizheng},
+  journal={arXiv preprint arXiv:2606.10581},
+  year={2026}
+}
+```
